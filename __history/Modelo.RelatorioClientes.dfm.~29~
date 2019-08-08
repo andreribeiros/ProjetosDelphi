@@ -1,0 +1,521 @@
+object dmRelatorioClientes: TdmRelatorioClientes
+  OldCreateOrder = False
+  Height = 150
+  Width = 215
+  object ppReportRelatorio: TppReport
+    AutoStop = False
+    DataPipeline = ppDBPipeline1
+    PrinterSetup.BinName = 'Default'
+    PrinterSetup.DocumentName = 'Report'
+    PrinterSetup.PaperName = 'A4'
+    PrinterSetup.PrinterName = 'Default'
+    PrinterSetup.SaveDeviceSettings = False
+    PrinterSetup.mmMarginBottom = 6350
+    PrinterSetup.mmMarginLeft = 6350
+    PrinterSetup.mmMarginRight = 6350
+    PrinterSetup.mmMarginTop = 6350
+    PrinterSetup.mmPaperHeight = 297000
+    PrinterSetup.mmPaperWidth = 210000
+    PrinterSetup.PaperSize = 9
+    ArchiveFileName = '($MyDocuments)\ReportArchive.raf'
+    DeviceType = 'Screen'
+    DefaultFileDeviceType = 'PDF'
+    EmailSettings.ReportFormat = 'PDF'
+    LanguageID = 'Default'
+    OpenFile = False
+    OutlineSettings.CreateNode = True
+    OutlineSettings.CreatePageNodes = True
+    OutlineSettings.Enabled = True
+    OutlineSettings.Visible = True
+    ThumbnailSettings.Enabled = True
+    ThumbnailSettings.Visible = True
+    ThumbnailSettings.DeadSpace = 30
+    PDFSettings.EmbedFontOptions = [efUseSubset]
+    PDFSettings.EncryptSettings.AllowCopy = True
+    PDFSettings.EncryptSettings.AllowInteract = True
+    PDFSettings.EncryptSettings.AllowModify = True
+    PDFSettings.EncryptSettings.AllowPrint = True
+    PDFSettings.EncryptSettings.AllowExtract = True
+    PDFSettings.EncryptSettings.AllowAssemble = True
+    PDFSettings.EncryptSettings.AllowQualityPrint = True
+    PDFSettings.EncryptSettings.Enabled = False
+    PDFSettings.EncryptSettings.KeyLength = kl40Bit
+    PDFSettings.EncryptSettings.EncryptionType = etRC4
+    PDFSettings.FontEncoding = feAnsi
+    PDFSettings.ImageCompressionLevel = 25
+    PreviewFormSettings.WindowState = wsMaximized
+    RTFSettings.DefaultFont.Charset = DEFAULT_CHARSET
+    RTFSettings.DefaultFont.Color = clWindowText
+    RTFSettings.DefaultFont.Height = -13
+    RTFSettings.DefaultFont.Name = 'Arial'
+    RTFSettings.DefaultFont.Style = []
+    TextFileName = '($MyDocuments)\Report.pdf'
+    TextSearchSettings.DefaultString = '<FindText>'
+    TextSearchSettings.Enabled = True
+    XLSSettings.AppName = 'ReportBuilder'
+    XLSSettings.Author = 'ReportBuilder'
+    XLSSettings.Subject = 'Report'
+    XLSSettings.Title = 'Report'
+    XLSSettings.WorksheetName = 'Report'
+    Left = 40
+    Version = '17.02'
+    mmColumnWidth = 0
+    DataPipelineName = 'ppDBPipeline1'
+    object ppTitleBand1: TppTitleBand
+      Background.Brush.Style = bsClear
+      mmBottomOffset = 0
+      mmHeight = 12171
+      mmPrintPosition = 0
+      object ppLabel1: TppLabel
+        DesignLayer = ppDesignLayer1
+        UserName = 'Label1'
+        AutoSize = False
+        Caption = 'Relatorio de clientes SIEDOS'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'TIMES NEW ROMAN'
+        Font.Size = 24
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 9525
+        mmLeft = 1323
+        mmTop = 1323
+        mmWidth = 158750
+        BandType = 1
+        LayerName = Foreground
+      end
+    end
+    object ppHeaderBand1: TppHeaderBand
+      Background.Brush.Style = bsClear
+      mmBottomOffset = 0
+      mmHeight = 6615
+      mmPrintPosition = 0
+      object ppLine1: TppLine
+        DesignLayer = ppDesignLayer1
+        UserName = 'Line1'
+        Pen.Width = 2
+        Weight = 1.500000000000000000
+        mmHeight = 3969
+        mmLeft = 1323
+        mmTop = 5292
+        mmWidth = 194734
+        BandType = 0
+        LayerName = Foreground
+      end
+      object ppLabel2: TppLabel
+        DesignLayer = ppDesignLayer1
+        UserName = 'Label2'
+        AutoSize = False
+        Caption = 'Cep'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'TIMES NEW ROMAN'
+        Font.Size = 10
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 3969
+        mmLeft = 145745
+        mmTop = 1323
+        mmWidth = 28308
+        BandType = 0
+        LayerName = Foreground
+      end
+      object ppLabel3: TppLabel
+        DesignLayer = ppDesignLayer1
+        UserName = 'Label3'
+        AutoSize = False
+        Caption = 'Cnpj'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'TIMES NEW ROMAN'
+        Font.Size = 10
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 3969
+        mmLeft = 86858
+        mmTop = 1323
+        mmWidth = 32884
+        BandType = 0
+        LayerName = Foreground
+      end
+      object ppLabel4: TppLabel
+        DesignLayer = ppDesignLayer1
+        UserName = 'Label4'
+        AutoSize = False
+        Caption = 'C'#243'digo Cliente'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'TIMES NEW ROMAN'
+        Font.Size = 10
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 3969
+        mmLeft = 1323
+        mmTop = 1323
+        mmWidth = 22868
+        BandType = 0
+        LayerName = Foreground
+      end
+      object ppLabel5: TppLabel
+        DesignLayer = ppDesignLayer1
+        UserName = 'Label5'
+        AutoSize = False
+        Caption = 'Raz'#227'o Social'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'TIMES NEW ROMAN'
+        Font.Size = 10
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 3969
+        mmLeft = 24864
+        mmTop = 1323
+        mmWidth = 60854
+        BandType = 0
+        LayerName = Foreground
+      end
+      object ppLabel6: TppLabel
+        DesignLayer = ppDesignLayer1
+        UserName = 'Label6'
+        AutoSize = False
+        Caption = 'Telefone'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'TIMES NEW ROMAN'
+        Font.Size = 10
+        Font.Style = [fsBold]
+        Transparent = True
+        mmHeight = 3969
+        mmLeft = 121213
+        mmTop = 1323
+        mmWidth = 23997
+        BandType = 0
+        LayerName = Foreground
+      end
+      object ppLine3: TppLine
+        DesignLayer = ppDesignLayer1
+        UserName = 'Line3'
+        Position = lpLeft
+        Weight = 1.000000000000000000
+        mmHeight = 3894
+        mmLeft = 23921
+        mmTop = 1323
+        mmWidth = 1058
+        BandType = 0
+        LayerName = Foreground
+      end
+      object ppLine4: TppLine
+        DesignLayer = ppDesignLayer1
+        UserName = 'Line4'
+        Position = lpLeft
+        Weight = 1.000000000000000000
+        mmHeight = 3894
+        mmLeft = 85779
+        mmTop = 1506
+        mmWidth = 1058
+        BandType = 0
+        LayerName = Foreground
+      end
+      object ppLine5: TppLine
+        DesignLayer = ppDesignLayer1
+        UserName = 'Line5'
+        Position = lpLeft
+        Weight = 1.000000000000000000
+        mmHeight = 3969
+        mmLeft = 120121
+        mmTop = 1323
+        mmWidth = 1058
+        BandType = 0
+        LayerName = Foreground
+      end
+      object ppLine6: TppLine
+        DesignLayer = ppDesignLayer1
+        UserName = 'Line6'
+        Position = lpLeft
+        Weight = 1.000000000000000000
+        mmHeight = 3969
+        mmLeft = 145418
+        mmTop = 1506
+        mmWidth = 1058
+        BandType = 0
+        LayerName = Foreground
+      end
+    end
+    object ppDetailBand1: TppDetailBand
+      Background1.Brush.Style = bsClear
+      Background2.Brush.Style = bsClear
+      mmBottomOffset = 0
+      mmHeight = 6085
+      mmPrintPosition = 0
+      object ppDBText1: TppDBText
+        DesignLayer = ppDesignLayer1
+        UserName = 'DBText1'
+        DataField = 'CEP'
+        DataPipeline = ppDBPipeline1
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'TIMES NEW ROMAN'
+        Font.Size = 8
+        Font.Style = []
+        Transparent = True
+        DataPipelineName = 'ppDBPipeline1'
+        mmHeight = 4233
+        mmLeft = 145969
+        mmTop = 794
+        mmWidth = 28903
+        BandType = 4
+        LayerName = Foreground
+      end
+      object ppDBText2: TppDBText
+        DesignLayer = ppDesignLayer1
+        UserName = 'DBText2'
+        DataField = 'CNPJ'
+        DataPipeline = ppDBPipeline1
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'TIMES NEW ROMAN'
+        Font.Size = 8
+        Font.Style = []
+        Transparent = True
+        DataPipelineName = 'ppDBPipeline1'
+        mmHeight = 4233
+        mmLeft = 86817
+        mmTop = 794
+        mmWidth = 32703
+        BandType = 4
+        LayerName = Foreground
+      end
+      object ppDBText3: TppDBText
+        DesignLayer = ppDesignLayer1
+        UserName = 'DBText3'
+        DataField = 'CODIGO_CLIENTE'
+        DataPipeline = ppDBPipeline1
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'TIMES NEW ROMAN'
+        Font.Size = 8
+        Font.Style = []
+        Transparent = True
+        DataPipelineName = 'ppDBPipeline1'
+        mmHeight = 4233
+        mmLeft = 1316
+        mmTop = 719
+        mmWidth = 22373
+        BandType = 4
+        LayerName = Foreground
+      end
+      object ppDBText4: TppDBText
+        DesignLayer = ppDesignLayer1
+        UserName = 'DBText4'
+        DataField = 'RAZAO_SOCIAL'
+        DataPipeline = ppDBPipeline1
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'TIMES NEW ROMAN'
+        Font.Size = 8
+        Font.Style = []
+        Transparent = True
+        DataPipelineName = 'ppDBPipeline1'
+        mmHeight = 4613
+        mmLeft = 24871
+        mmTop = 719
+        mmWidth = 60767
+        BandType = 4
+        LayerName = Foreground
+      end
+      object ppDBText5: TppDBText
+        DesignLayer = ppDesignLayer1
+        UserName = 'DBText5'
+        DataField = 'TELEFONE'
+        DataPipeline = ppDBPipeline1
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'TIMES NEW ROMAN'
+        Font.Size = 8
+        Font.Style = []
+        Transparent = True
+        DataPipelineName = 'ppDBPipeline1'
+        mmHeight = 4233
+        mmLeft = 121030
+        mmTop = 760
+        mmWidth = 23997
+        BandType = 4
+        LayerName = Foreground
+      end
+      object ppLine7: TppLine
+        DesignLayer = ppDesignLayer1
+        UserName = 'Line7'
+        Position = lpLeft
+        Weight = 1.000000000000000000
+        mmHeight = 4844
+        mmLeft = 23813
+        mmTop = 0
+        mmWidth = 1058
+        BandType = 4
+        LayerName = Foreground
+      end
+      object ppLine8: TppLine
+        DesignLayer = ppDesignLayer1
+        UserName = 'Line8'
+        Pen.Color = clGray
+        Weight = 0.750000000000000000
+        mmHeight = 3969
+        mmLeft = 1323
+        mmTop = 5231
+        mmWidth = 194734
+        BandType = 4
+        LayerName = Foreground
+      end
+      object ppLine9: TppLine
+        DesignLayer = ppDesignLayer1
+        UserName = 'Line9'
+        Position = lpLeft
+        Weight = 1.000000000000000000
+        mmHeight = 4953
+        mmLeft = 85915
+        mmTop = 0
+        mmWidth = 1058
+        BandType = 4
+        LayerName = Foreground
+      end
+      object ppLine10: TppLine
+        DesignLayer = ppDesignLayer1
+        UserName = 'Line10'
+        Position = lpLeft
+        Weight = 1.000000000000000000
+        mmHeight = 5027
+        mmLeft = 120236
+        mmTop = 0
+        mmWidth = 1058
+        BandType = 4
+        LayerName = Foreground
+      end
+      object ppLine11: TppLine
+        DesignLayer = ppDesignLayer1
+        UserName = 'Line101'
+        Position = lpLeft
+        Weight = 1.000000000000000000
+        mmHeight = 5027
+        mmLeft = 145432
+        mmTop = 0
+        mmWidth = 1134
+        BandType = 4
+        LayerName = Foreground
+      end
+    end
+    object ppFooterBand1: TppFooterBand
+      Background.Brush.Style = bsClear
+      mmBottomOffset = 0
+      mmHeight = 6350
+      mmPrintPosition = 0
+      object ppLine2: TppLine
+        DesignLayer = ppDesignLayer1
+        UserName = 'Line2'
+        Pen.Color = clGray
+        Weight = 0.750000000000000000
+        mmHeight = 3969
+        mmLeft = 1323
+        mmTop = 5027
+        mmWidth = 194734
+        BandType = 8
+        LayerName = Foreground
+      end
+      object ppSystemVariable1: TppSystemVariable
+        DesignLayer = ppDesignLayer1
+        UserName = 'SystemVariable1'
+        VarType = vtPrintDateTime
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'TIMES NEW ROMAN'
+        Font.Size = 8
+        Font.Style = []
+        Transparent = True
+        mmHeight = 3704
+        mmLeft = 1323
+        mmTop = 1323
+        mmWidth = 26194
+        BandType = 8
+        LayerName = Foreground
+      end
+      object ppSystemVariable2: TppSystemVariable
+        DesignLayer = ppDesignLayer1
+        UserName = 'SystemVariable2'
+        VarType = vtPageNoDesc
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'TIMES NEW ROMAN'
+        Font.Size = 8
+        Font.Style = []
+        TextAlignment = taRightJustified
+        Transparent = True
+        mmHeight = 3704
+        mmLeft = 187855
+        mmTop = 1323
+        mmWidth = 8202
+        BandType = 8
+        LayerName = Foreground
+      end
+    end
+    object ppDesignLayers1: TppDesignLayers
+      object ppDesignLayer1: TppDesignLayer
+        UserName = 'Foreground'
+        LayerType = ltBanded
+        Index = 0
+      end
+    end
+    object ppParameterList1: TppParameterList
+    end
+  end
+  object dsRelatorio: TDataSource
+    AutoEdit = False
+    Left = 40
+    Top = 96
+  end
+  object ppDBPipeline1: TppDBPipeline
+    DataSource = dsRelatorio
+    AutoCreateFields = False
+    UserName = 'DBPipelineRelatorio'
+    Left = 40
+    Top = 56
+    object ppDBPipeline1ppField1: TppField
+      FieldAlias = 'CODIGO_CLIENTE'
+      FieldName = 'CODIGO_CLIENTE'
+      FieldLength = 10
+      DisplayWidth = 10
+      Position = 0
+      SelectOrder = 2
+    end
+    object ppDBPipeline1ppField2: TppField
+      FieldAlias = 'RAZAO_SOCIAL'
+      FieldName = 'RAZAO_SOCIAL'
+      FieldLength = 10
+      DisplayWidth = 10
+      Position = 1
+      SelectOrder = 3
+    end
+    object ppDBPipeline1ppField3: TppField
+      FieldAlias = 'CNPJ'
+      FieldName = 'CNPJ'
+      FieldLength = 10
+      DisplayWidth = 10
+      Position = 2
+      SelectOrder = 1
+    end
+    object ppDBPipeline1ppField4: TppField
+      FieldAlias = 'TELEFONE'
+      FieldName = 'TELEFONE'
+      FieldLength = 10
+      DisplayWidth = 10
+      Position = 3
+      SelectOrder = 4
+    end
+    object ppDBPipeline1ppField5: TppField
+      FieldAlias = 'CEP'
+      FieldName = 'CEP'
+      FieldLength = 10
+      DisplayWidth = 10
+      Position = 4
+      SelectOrder = 0
+    end
+  end
+end

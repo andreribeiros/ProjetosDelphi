@@ -1,0 +1,62 @@
+unit Modelo.Principal;
+
+interface
+
+uses
+  System.SysUtils, System.Classes;
+
+type
+  TDataModule1 = class(TDataModule)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    function CriarAdoConnection(const pCaminhoArquivo: string): TADOConnection;
+  end;
+
+var
+  DataModule1: TDataModule1;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+{ TDataModule1 }
+
+function TDataModule1.CriarAdoConnection(const pCaminhoArquivo: string): TADOConnection;
+const
+  STRING_CONEXAO_EXCEL_2003 = 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source= %S;Extended Properties=Excel 8.0;Persist Security Info=False';
+  STRING_CONEXAO_EXCEL_2007 = 'Provider=Microsoft.ACE.OLEDB.12.0;Data Source= %S; Extended Properties="Excel 12.0 Xml;HDR=YES" ';
+  EXTENSAO_EXCEL_2003 = '.XLS';
+
+var
+  vStringConexao: string;
+
+begin
+  if (AnsiUpperCase(ExtractFileExt(pCaminhoArquivo)) = EXTENSAO_EXCEL_2003) then
+  begin
+    vStringConexao := STRING_CONEXAO_EXCEL_2003;
+  end
+  else
+  begin
+    vStringConexao := STRING_CONEXAO_EXCEL_2007;
+  end;
+
+  Result := TADOConnection.Create(Nil);
+  try
+    Result.ConnectionString := Format(vStringConexao, [pCaminhoArquivo]);
+    Result.LoginPrompt      := False;
+    Result.Connected        := True;
+  except
+    on E: Exception do
+    begin
+      raise Exception.CreateFmt('Erro ao conectar com o arquivo %S.%SCód Erro: %S',
+                                [pCaminhoArquivo, sLineBreak, E.Message]);
+    end;
+  end;
+end;
+
+
+end.

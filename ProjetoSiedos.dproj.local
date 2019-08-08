@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2019/07/11 17:21:02.000.407,=C:\Users\gestcom\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/08/06 08:46:06.000.140,=C:\Users\gestcom\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/08/07 15:34:40.000.092,=C:\Users\gestcom\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/08/07 15:35:29.000.603,C:\Users\gestcom\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\gestcom\Desktop\ProjetosTeste\ProjetoSiedos\Visao.Principal.dfm</Transaction>
+    <Transaction>2019/08/07 15:35:29.000.603,C:\Users\gestcom\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\gestcom\Desktop\ProjetosTeste\ProjetoSiedos\Visao.Principal.pas</Transaction>
+    <Transaction>2019/08/07 15:35:41.000.493,C:\Users\gestcom\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\gestcom\Desktop\ProjetosTeste\ProjetoSiedos\ProjetoSiedos.dproj</Transaction>
+    <Transaction>2019/08/07 15:54:53.000.059,=C:\Users\gestcom\Desktop\ProjetosTeste\ProjetoSiedos\Unit1.pas</Transaction>
+    <Transaction>2019/08/07 15:56:23.000.355,=C:\Users\gestcom\Desktop\ProjetosTeste\ProjetoSiedos\Unit1.pas</Transaction>
+    <Transaction>2019/08/07 15:56:33.000.233,C:\Users\gestcom\Desktop\ProjetosTeste\ProjetoSiedos\Modelo.Principal.dfm=C:\Users\gestcom\Desktop\ProjetosTeste\ProjetoSiedos\Unit1.dfm</Transaction>
+    <Transaction>2019/08/07 15:56:33.000.233,C:\Users\gestcom\Desktop\ProjetosTeste\ProjetoSiedos\Modelo.Principal.pas=C:\Users\gestcom\Desktop\ProjetosTeste\ProjetoSiedos\Unit1.pas</Transaction>
+    <Transaction>2019/08/07 16:12:15.000.968,C:\Users\gestcom\Desktop\ProjetosTeste\ProjetoSiedos\ProjetoTesteeeee.dproj=C:\Users\gestcom\Desktop\ProjetosTeste\ProjetoSiedos\ProjetoSiedos.dproj</Transaction>
+    <Transaction>2019/08/07 19:51:49.000.871,=C:\Users\AndreSilva\Desktop\ProjetoSiedos\Unit2.pas</Transaction>
+    <Transaction>2019/08/07 20:11:21.000.272,C:\Users\AndreSilva\Desktop\ProjetoSiedos\Modelo.RelatorioClientes.pas=C:\Users\AndreSilva\Desktop\ProjetoSiedos\Modelo.Principal.pas</Transaction>
+    <Transaction>2019/08/07 20:11:21.000.272,C:\Users\AndreSilva\Desktop\ProjetoSiedos\Modelo.RelatorioClientes.dfm=C:\Users\AndreSilva\Desktop\ProjetoSiedos\Modelo.Principal.dfm</Transaction>
+    <Transaction>2019/08/07 20:11:29.000.940,C:\Users\AndreSilva\Desktop\ProjetoSiedos\Visao.RelatorioClientes.dfm=C:\Users\AndreSilva\Desktop\ProjetoSiedos\Visao.Principal.dfm</Transaction>
+    <Transaction>2019/08/07 20:11:29.000.940,C:\Users\AndreSilva\Desktop\ProjetoSiedos\Visao.RelatorioClientes.pas=C:\Users\AndreSilva\Desktop\ProjetoSiedos\Visao.Principal.pas</Transaction>
+    <Transaction>2019/08/07 20:51:14.000.675,C:\Users\AndreSilva\Desktop\ProjetoSiedos\ProjetoSiedos.dproj=C:\Users\AndreSilva\Desktop\ProjetoSiedos\ProjetoTesteeeee.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

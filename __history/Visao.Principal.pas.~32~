@@ -1,0 +1,177 @@
+unit Visao.Principal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, cxGraphics,
+  cxLookAndFeels, cxLookAndFeelPainters, Vcl.Menus, dxSkinsCore, dxSkinBlack,
+  dxSkinBlue, dxSkinBlueprint, dxSkinCaramel, dxSkinCoffee, dxSkinDarkRoom,
+  dxSkinDarkSide, dxSkinDevExpressDarkStyle, dxSkinDevExpressStyle, dxSkinFoggy,
+  dxSkinGlassOceans, dxSkinHighContrast, dxSkiniMaginary, dxSkinLilian,
+  dxSkinLiquidSky, dxSkinLondonLiquidSky, dxSkinMcSkin, dxSkinMetropolis,
+  dxSkinMetropolisDark, dxSkinMoneyTwins, dxSkinOffice2007Black,
+  dxSkinOffice2007Blue, dxSkinOffice2007Green, dxSkinOffice2007Pink,
+  dxSkinOffice2007Silver, dxSkinOffice2010Black, dxSkinOffice2010Blue,
+  dxSkinOffice2010Silver, dxSkinOffice2013DarkGray, dxSkinOffice2013LightGray,
+  dxSkinOffice2013White, dxSkinPumpkin, dxSkinSeven, dxSkinSevenClassic,
+  dxSkinSharp, dxSkinSharpPlus, dxSkinSilver, dxSkinSpringTime, dxSkinStardust,
+  dxSkinSummer2008, dxSkinTheAsphaltWorld, dxSkinsDefaultPainters,
+  dxSkinValentine, dxSkinVS2010, dxSkinWhiteprint, dxSkinXmas2008Blue,
+  System.Actions, Vcl.ActnList, Vcl.StdCtrls, cxButtons, System.ImageList,
+  Vcl.ImgList, cxControls, cxStyles, dxSkinscxPCPainter, cxCustomData, cxFilter,
+  cxData, cxDataStorage, cxEdit, cxNavigator, Data.DB, cxDBData, cxGridLevel,
+  cxClasses, cxGridCustomView, cxGridCustomTableView, cxGridTableView,
+  cxGridDBTableView, cxGrid, Data.Win.ADODB;
+
+type
+  TForm1 = class(TForm)
+    pnlBotoes: TPanel;
+    ImagensFormularios: TImageList;
+    btnSair: TcxButton;
+    ActionList1: TActionList;
+    btnImprimir: TcxButton;
+    btnProcessar: TcxButton;
+    btnRetornar: TcxButton;
+    ActionRetornar: TAction;
+    ActionProcessar: TAction;
+    ActionImprimir: TAction;
+    ActionSair: TAction;
+    pnlPrincipal: TPanel;
+    cxGridClientesDBTableView1: TcxGridDBTableView;
+    cxGridClientesLevel1: TcxGridLevel;
+    cxGridClientes: TcxGrid;
+    dsClientes: TDataSource;
+    Label1: TLabel;
+    edtCaminhoArquivo: TEdit;
+    btnLocalizarArquivo: TButton;
+    OpenDialog: TOpenDialog;
+    procedure btnLocalizarArquivoClick(Sender: TObject);
+  private
+    FADOConnection: TADOConnection;
+    FADODataSet: TADODataSet;
+    { Private declarations }
+    procedure CarregarBanco;
+    function CriarAdoConnection(const pCaminhoArquivo: string): TADOConnection;
+    function CriarAdoDataSet(var pAdoConnection: TADOConnection; const pTabela: string): TADODataSet;
+    procedure SetADOConnection(const Value: TADOConnection);
+    procedure SetADODataSet(const Value: TADODataSet);
+    property ADOConnection: TADOConnection read FADOConnection write SetADOConnection;
+    property ADODataSet: TADODataSet read FADODataSet write SetADODataSet;
+  public
+    { Public declarations }
+  end;
+const
+  EXTENSAO_ARQUIVO_XLS  = '.XLS';
+  TABELA_ARQUIVO = 'Cliente$';
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.btnLocalizarArquivoClick(Sender: TObject);
+begin
+  OpenDialog.Filter := 'Arquivo do Excel|*.xls*|';
+  if (OpenDialog.Execute) then
+  begin
+    if not (UpperCase(ExtractFileExt(OpenDialog.FileName)) = EXTENSAO_ARQUIVO_XLS) then
+    begin
+      raise Exception.Create('Arquivo Inválido.');
+    end;
+
+    edtCaminhoArquivo.Text := OpenDialog.FileName;
+  end;
+end;
+
+procedure TForm1.CarregarBanco;
+begin
+  if (Application.MessageBox('Deseja importar o arquivo Excel?', 'GestFarma', MB_YESNO + MB_ICONQUESTION) = mrYes) then
+  begin
+    if (FileExists(edtCaminhoArquivo.Text)) then
+    begin
+      FAdoConnection := CriarAdoConnection(edtCaminhoArquivo.Text);
+      try
+        ADODataSet    := CriarAdoDataSet(FAdoConnection, TABELA_ARQUIVO);
+
+        dsProdutosEstoqueMinimo.DataSet := FADODataSet;
+
+        ControleBotoes(tsImportar);
+      except
+        FAdoConnection.Connected := False;
+        FreeAndNil(FAdoConnection);
+      end;
+    end
+    else
+    begin
+      Application.MessageBox('Arquivo não localizado!', 'GestFarma', MB_OK + MB_ICONWARNING);
+    end;
+  end;
+end;
+
+function TForm1.CriarAdoConnection(
+  const pCaminhoArquivo: string): TADOConnection;
+const
+  STRING_CONEXAO_EXCEL_2003 = 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source= %S;Extended Properties=Excel 8.0;Persist Security Info=False';
+  STRING_CONEXAO_EXCEL_2007 = 'Provider=Microsoft.ACE.OLEDB.12.0;Data Source= %S; Extended Properties="Excel 12.0 Xml;HDR=YES" ';
+  EXTENSAO_EXCEL_2003 = '.XLS';
+
+var
+  vStringConexao: string;
+
+begin
+  if (AnsiUpperCase(ExtractFileExt(pCaminhoArquivo)) = EXTENSAO_EXCEL_2003) then
+  begin
+    vStringConexao := STRING_CONEXAO_EXCEL_2003;
+  end
+  else
+  begin
+    vStringConexao := STRING_CONEXAO_EXCEL_2007;
+  end;
+
+  Result := TADOConnection.Create(Nil);
+  try
+    Result.ConnectionString := Format(vStringConexao, [pCaminhoArquivo]);
+    Result.LoginPrompt      := False;
+    Result.Connected        := True;
+  except
+    on E: Exception do
+    begin
+      raise Exception.CreateFmt('Erro ao conectar com o arquivo %S.%SCód Erro: %S',
+                                [pCaminhoArquivo, sLineBreak, E.Message]);
+    end;
+  end;
+end;
+
+function TForm1.CriarAdoDataSet(var pAdoConnection: TADOConnection;
+  const pTabela: string): TADODataSet;
+begin
+  Result := TADODataSet.Create(Nil);
+  try
+    Result.Connection  := pAdoConnection;
+    Result.CommandText := pTabela;
+    Result.CommandType := cmdTableDirect;
+    Result.CursorType  := ctStatic;
+    Result.Active      := True;
+  except
+    on E: Exception do
+    begin
+      raise Exception.CreateFmt('Erro ao ler a tabela %S.%SCód Erro: %S',
+                                [pTabela, sLineBreak, E.Message]);
+    end;
+  end;
+end;
+
+procedure TForm1.SetADOConnection(const Value: TADOConnection);
+begin
+  FADOConnection := Value;
+end;
+
+procedure TForm1.SetADODataSet(const Value: TADODataSet);
+begin
+  FADODataSet := Value;
+end;
+
+end.
